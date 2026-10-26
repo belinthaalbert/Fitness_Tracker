@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FitTrack | Progress</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body data-page="progress">
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <div class="brand">
+          <div class="brand-mark">F</div>
+          <span>FitTrack</span>
+        </div>
+
+        <nav class="sidebar-nav" aria-label="Main navigation">
+          <a href="dashboard.html" class="nav-link" data-page="dashboard"><span class="nav-icon">⌂</span><span>Dashboard</span></a>
+          <a href="workouts.html" class="nav-link" data-page="workouts"><span class="nav-icon">🏋️</span><span>Workouts</span></a>
+          <a href="nutrition.html" class="nav-link" data-page="nutrition"><span class="nav-icon">🥗</span><span>Nutrition</span></a>
+          <a href="progress.html" class="nav-link active" data-page="progress"><span class="nav-icon">📈</span><span>Progress</span></a>
+          <a href="goals.html" class="nav-link" data-page="goals"><span class="nav-icon">🎯</span><span>Goals</span></a>
+          <a href="profile.html" class="nav-link" data-page="profile"><span class="nav-icon">👤</span><span>Profile</span></a>
+          <a href="settings.html" class="nav-link" data-page="settings"><span class="nav-icon">⚙️</span><span>Settings</span></a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <button class="btn btn-ghost btn-block" data-logout>Log out</button>
+        </div>
+      </aside>
+
+      <div class="main-panel">
+        <header class="topbar">
+          <div class="topbar-left">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">☰</button>
+            <div>
+              <p class="eyebrow">Progress</p>
+              <h1>Tracking</h1>
+            </div>
+          </div>
+          <div class="topbar-right">
+            <div class="date-pill" id="currentDate"></div>
+          </div>
+        </header>
+
+        <main class="page-content progress-page">
+          <section class="stats-grid progress-overview">
+            <article class="stat-card highlight">
+              <div class="stat-header"><span class="stat-label">Current weight</span><span class="stat-icon">⚖️</span></div>
+              <h3 id="currentWeightStat">0 kg</h3>
+              <p id="weightTrendText">Trend: stable</p>
+            </article>
+            <article class="stat-card">
+              <div class="stat-header"><span class="stat-label">Workout frequency</span><span class="stat-icon">🏋️</span></div>
+              <h3 id="workoutFrequencyStat">0 / week</h3>
+              <p>Sessions this month</p>
+            </article>
+            <article class="stat-card">
+              <div class="stat-header"><span class="stat-label">Avg. steps</span><span class="stat-icon">👟</span></div>
+              <h3 id="avgStepsStat">0</h3>
+              <p>Daily average</p>
+            </article>
+          </section>
+
+          <section class="progress-layout">
+            <div class="panel form-panel">
+              <div class="panel-header">
+                <div>
+                  <p class="eyebrow">Log update</p>
+                  <h2>Add progress entry</h2>
+                </div>
+              </div>
+
+              <form id="progressForm" class="stack-form" novalidate>
+                <div class="field-grid two-col">
+                  <div class="field">
+                    <label for="entryDate">Date</label>
+                    <input id="entryDate" type="date" required />
+                  </div>
+                  <div class="field">
+                    <label for="entryWeight">Weight</label>
+                    <input id="entryWeight" type="number" step="0.1" placeholder="73.5" required />
+                  </div>
+                </div>
+
+                <div class="field-grid two-col">
+                  <div class="field">
+                    <label for="entrySteps">Steps</label>
+                    <input id="entrySteps" type="number" min="0" placeholder="8500" required />
+                  </div>
+                  <div class="field">
+                    <label for="entryCalories">Calories burned</label>
+                    <input id="entryCalories" type="number" min="0" placeholder="540" required />
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label for="entryNotes">Notes</label>
+                  <textarea id="entryNotes" rows="3" placeholder="Morning workout, good sleep, etc."></textarea>
+                </div>
+
+                <button class="btn btn-primary btn-block" type="submit">Save progress</button>
+              </form>
+              <div id="progressMessage" class="form-message" aria-live="polite"></div>
+            </div>
+
+            <div class="panel chart-panel">
+              <div class="panel-header">
+                <div>
+                  <p class="eyebrow">Metrics</p>
+                  <h2>Weight trend</h2>
+                </div>
+              </div>
+              <canvas id="weightChart" height="220"></canvas>
+            </div>
+          </section>
+
+          <section class="panel chart-panel full-width-chart">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Activity</p>
+                <h2>Weekly performance</h2>
+              </div>
+            </div>
+            <canvas id="activityChart" height="220"></canvas>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/progress.js"></script>
+  </body>
+</html>

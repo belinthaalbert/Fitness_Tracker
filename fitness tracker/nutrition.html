@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FitTrack | Nutrition</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body data-page="nutrition">
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <div class="brand">
+          <div class="brand-mark">F</div>
+          <span>FitTrack</span>
+        </div>
+
+        <nav class="sidebar-nav" aria-label="Main navigation">
+          <a href="dashboard.html" class="nav-link" data-page="dashboard"><span class="nav-icon">⌂</span><span>Dashboard</span></a>
+          <a href="workouts.html" class="nav-link" data-page="workouts"><span class="nav-icon">🏋️</span><span>Workouts</span></a>
+          <a href="nutrition.html" class="nav-link active" data-page="nutrition"><span class="nav-icon">🥗</span><span>Nutrition</span></a>
+          <a href="progress.html" class="nav-link" data-page="progress"><span class="nav-icon">📈</span><span>Progress</span></a>
+          <a href="goals.html" class="nav-link" data-page="goals"><span class="nav-icon">🎯</span><span>Goals</span></a>
+          <a href="profile.html" class="nav-link" data-page="profile"><span class="nav-icon">👤</span><span>Profile</span></a>
+          <a href="settings.html" class="nav-link" data-page="settings"><span class="nav-icon">⚙️</span><span>Settings</span></a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <button class="btn btn-ghost btn-block" data-logout>Log out</button>
+        </div>
+      </aside>
+
+      <div class="main-panel">
+        <header class="topbar">
+          <div class="topbar-left">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">☰</button>
+            <div>
+              <p class="eyebrow">Nutrition tracking</p>
+              <h1>Nutrition</h1>
+            </div>
+          </div>
+          <div class="topbar-right">
+            <div class="date-pill" id="currentDate"></div>
+          </div>
+        </header>
+
+        <main class="page-content nutrition-page">
+          <section class="stats-grid nutrition-stats">
+            <article class="stat-card highlight">
+              <div class="stat-header"><span class="stat-label">Calorie target</span><span class="stat-icon">🔥</span></div>
+              <h3 id="targetCalories">2200 kcal</h3>
+              <p>Daily target</p>
+            </article>
+            <article class="stat-card">
+              <div class="stat-header"><span class="stat-label">Consumed</span><span class="stat-icon">🍽️</span></div>
+              <h3 id="consumedCalories">0 kcal</h3>
+              <p>Calories eaten</p>
+            </article>
+            <article class="stat-card">
+              <div class="stat-header"><span class="stat-label">Remaining</span><span class="stat-icon">✅</span></div>
+              <h3 id="remainingCalories">0 kcal</h3>
+              <p>Calories left</p>
+            </article>
+          </section>
+
+          <section class="nutrition-layout">
+            <div class="panel form-panel">
+              <div class="panel-header">
+                <div>
+                  <p class="eyebrow">Log food</p>
+                  <h2>Add meals</h2>
+                </div>
+              </div>
+
+              <form id="nutritionForm" class="stack-form" novalidate>
+                <div class="field">
+                  <label for="foodName">Food name</label>
+                  <input id="foodName" name="foodName" type="text" placeholder="e.g. Greek yogurt" required />
+                </div>
+
+                <div class="field-grid two-col">
+                  <div class="field">
+                    <label for="foodCalories">Calories</label>
+                    <input id="foodCalories" name="foodCalories" type="number" min="1" placeholder="320" required />
+                  </div>
+                  <div class="field">
+                    <label for="foodQuantity">Quantity</label>
+                    <input id="foodQuantity" name="foodQuantity" type="number" min="1" placeholder="1" required />
+                  </div>
+                </div>
+
+                <div class="field-grid two-col">
+                  <div class="field">
+                    <label for="foodProtein">Protein (g)</label>
+                    <input id="foodProtein" name="foodProtein" type="number" min="0" placeholder="18" required />
+                  </div>
+                  <div class="field">
+                    <label for="foodCarbs">Carbs (g)</label>
+                    <input id="foodCarbs" name="foodCarbs" type="number" min="0" placeholder="20" required />
+                  </div>
+                </div>
+
+                <div class="field-grid two-col">
+                  <div class="field">
+                    <label for="foodFat">Fat (g)</label>
+                    <input id="foodFat" name="foodFat" type="number" min="0" placeholder="12" required />
+                  </div>
+                  <div class="field">
+                    <label for="foodMeal">Meal</label>
+                    <select id="foodMeal" name="foodMeal">
+                      <option value="breakfast">Breakfast</option>
+                      <option value="lunch">Lunch</option>
+                      <option value="dinner">Dinner</option>
+                      <option value="snacks">Snacks</option>
+                    </select>
+                  </div>
+                </div>
+
+                <button class="btn btn-primary btn-block" type="submit">Add food</button>
+              </form>
+              <div id="nutritionMessage" class="form-message" aria-live="polite"></div>
+            </div>
+
+            <div class="panel macro-panel">
+              <div class="panel-header">
+                <div>
+                  <p class="eyebrow">Macro balance</p>
+                  <h2>Nutrition goals</h2>
+                </div>
+              </div>
+
+              <div class="macro-list">
+                <div class="macro-item">
+                  <div class="macro-meta"><span>Protein</span><strong id="proteinValue">0g / 160g</strong></div>
+                  <div class="progress-bar"><span id="proteinBar" style="width:0%"></span></div>
+                </div>
+                <div class="macro-item">
+                  <div class="macro-meta"><span>Carbs</span><strong id="carbsValue">0g / 230g</strong></div>
+                  <div class="progress-bar"><span id="carbsBar" style="width:0%"></span></div>
+                </div>
+                <div class="macro-item">
+                  <div class="macro-meta"><span>Fat</span><strong id="fatValue">0g / 70g</strong></div>
+                  <div class="progress-bar"><span id="fatBar" style="width:0%"></span></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="meal-sections" id="mealSections"></section>
+        </main>
+      </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/nutrition.js"></script>
+  </body>
+</html>

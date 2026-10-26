@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FitTrack | Settings</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body data-page="settings">
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <div class="brand">
+          <div class="brand-mark">F</div>
+          <span>FitTrack</span>
+        </div>
+
+        <nav class="sidebar-nav" aria-label="Main navigation">
+          <a href="dashboard.html" class="nav-link" data-page="dashboard"><span class="nav-icon">⌂</span><span>Dashboard</span></a>
+          <a href="workouts.html" class="nav-link" data-page="workouts"><span class="nav-icon">🏋️</span><span>Workouts</span></a>
+          <a href="nutrition.html" class="nav-link" data-page="nutrition"><span class="nav-icon">🥗</span><span>Nutrition</span></a>
+          <a href="progress.html" class="nav-link" data-page="progress"><span class="nav-icon">📈</span><span>Progress</span></a>
+          <a href="goals.html" class="nav-link" data-page="goals"><span class="nav-icon">🎯</span><span>Goals</span></a>
+          <a href="profile.html" class="nav-link" data-page="profile"><span class="nav-icon">👤</span><span>Profile</span></a>
+          <a href="settings.html" class="nav-link active" data-page="settings"><span class="nav-icon">⚙️</span><span>Settings</span></a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <button class="btn btn-ghost btn-block" data-logout>Log out</button>
+        </div>
+      </aside>
+
+      <div class="main-panel">
+        <header class="topbar">
+          <div class="topbar-left">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">☰</button>
+            <div>
+              <p class="eyebrow">Preferences</p>
+              <h1>Settings</h1>
+            </div>
+          </div>
+        </header>
+
+        <main class="page-content settings-page">
+          <section class="panel settings-panel">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Account</p>
+                <h2>Preferences</h2>
+              </div>
+            </div>
+
+            <form id="settingsForm" class="stack-form" novalidate>
+              <div class="toggle-row">
+                <div>
+                  <label>Dark mode</label>
+                  <small>Switch between dark and light themes</small>
+                </div>
+                <label class="switch">
+                  <input id="themeToggle" type="checkbox" />
+                  <span class="slider"></span>
+                </label>
+              </div>
+
+              <div class="toggle-row">
+                <div>
+                  <label>Notifications</label>
+                  <small>Daily motivation and reminder alerts</small>
+                </div>
+                <label class="switch">
+                  <input id="notificationsToggle" type="checkbox" checked />
+                  <span class="slider"></span>
+                </label>
+              </div>
+
+              <div class="field-grid two-col">
+                <div class="field">
+                  <label for="unitSystem">Units</label>
+                  <select id="unitSystem">
+                    <option value="metric">Metric</option>
+                    <option value="imperial">Imperial</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="languageSelect">Language</label>
+                  <select id="languageSelect">
+                    <option value="en">English</option>
+                    <option value="es">Español</option>
+                    <option value="fr">Français</option>
+                    <option value="de">Deutsch</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="settings-actions">
+                <button class="btn btn-primary" type="submit">Save settings</button>
+                <button class="btn btn-ghost danger-btn" type="button" id="clearStorageBtn">Clear data</button>
+                <button class="btn btn-secondary" type="button" id="logoutBtn">Logout</button>
+              </div>
+            </form>
+            <div id="settingsMessage" class="form-message" aria-live="polite"></div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/settings.js"></script>
+  </body>
+</html>

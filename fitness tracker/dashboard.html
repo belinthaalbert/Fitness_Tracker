@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FitTrack | Dashboard</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body data-page="dashboard">
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <div class="brand">
+          <div class="brand-mark">F</div>
+          <span>FitTrack</span>
+        </div>
+
+        <nav class="sidebar-nav" aria-label="Main navigation">
+          <a href="dashboard.html" class="nav-link active" data-page="dashboard">
+            <span class="nav-icon">⌂</span>
+            <span>Dashboard</span>
+          </a>
+          <a href="workouts.html" class="nav-link" data-page="workouts">
+            <span class="nav-icon">🏋️</span>
+            <span>Workouts</span>
+          </a>
+          <a href="nutrition.html" class="nav-link" data-page="nutrition">
+            <span class="nav-icon">🥗</span>
+            <span>Nutrition</span>
+          </a>
+          <a href="progress.html" class="nav-link" data-page="progress">
+            <span class="nav-icon">📈</span>
+            <span>Progress</span>
+          </a>
+          <a href="goals.html" class="nav-link" data-page="goals">
+            <span class="nav-icon">🎯</span>
+            <span>Goals</span>
+          </a>
+          <a href="profile.html" class="nav-link" data-page="profile">
+            <span class="nav-icon">👤</span>
+            <span>Profile</span>
+          </a>
+          <a href="settings.html" class="nav-link" data-page="settings">
+            <span class="nav-icon">⚙️</span>
+            <span>Settings</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <button class="btn btn-ghost btn-block" data-logout>Log out</button>
+        </div>
+      </aside>
+
+      <div class="main-panel">
+        <header class="topbar">
+          <div class="topbar-left">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">☰</button>
+            <div>
+              <p class="eyebrow">Overview</p>
+              <h1>Dashboard</h1>
+            </div>
+          </div>
+
+          <div class="topbar-right">
+            <div class="date-pill" id="currentDate"></div>
+            <div class="user-chip">
+              <div class="avatar" id="topbarAvatar">AB</div>
+              <div>
+                <strong id="topbarName">Ava Brooks</strong>
+                <small>Member</small>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <main class="page-content dashboard-content">
+          <section class="stats-grid">
+            <article class="stat-card highlight">
+              <div class="stat-header">
+                <span class="stat-label">Daily calorie goal</span>
+                <span class="stat-icon">🔥</span>
+              </div>
+              <h3 id="calorieGoalValue">2200 kcal</h3>
+              <p>Target remaining: <strong id="calorieGoalRemaining">1,640 kcal</strong></p>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-header">
+                <span class="stat-label">Steps</span>
+                <span class="stat-icon">👟</span>
+              </div>
+              <h3 id="stepsValue">8,740</h3>
+              <p><strong id="stepGoalProgress">87%</strong> of daily goal</p>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-header">
+                <span class="stat-label">Calories burned</span>
+                <span class="stat-icon">⚡</span>
+              </div>
+              <h3 id="caloriesBurnedValue">640 kcal</h3>
+              <p>Active minutes: <strong id="activeMinutesValue">42 min</strong></p>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-header">
+                <span class="stat-label">Water intake</span>
+                <span class="stat-icon">💧</span>
+              </div>
+              <h3 id="waterValue">2.1 L</h3>
+              <p><strong id="waterGoalProgress">70%</strong> of goal</p>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-header">
+                <span class="stat-label">Sleep</span>
+                <span class="stat-icon">😴</span>
+              </div>
+              <h3 id="sleepValue">7.4 hrs</h3>
+              <p>Recovery score: <strong id="sleepScoreValue">92</strong></p>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-header">
+                <span class="stat-label">Heart rate</span>
+                <span class="stat-icon">❤️</span>
+              </div>
+              <h3 id="heartRateValue">120 bpm</h3>
+              <p>Avg. resting: <strong id="restingHeartRateValue">68 bpm</strong></p>
+            </article>
+          </section>
+
+          <section class="content-grid main-grid">
+            <article class="panel chart-panel wide-panel">
+              <div class="panel-header">
+                <div>
+                  <p class="eyebrow">Performance</p>
+                  <h2>Weekly activity</h2>
+                </div>
+                <span class="tag tag-success">+12.4%</span>
+              </div>
+              <canvas id="weeklyChart" height="220"></canvas>
+            </article>
+
+            <article class="panel achievement-panel">
+              <div class="panel-header">
+                <div>
+                  <p class="eyebrow">Motivation</p>
+                  <h2>Daily focus</h2>
+                </div>
+              </div>
+              <p class="motivation-message" id="motivationMessage">
+                “Consistency compounds. One smart workout today builds momentum for tomorrow.”
+              </p>
+              <div class="progress-stack">
+                <div>
+                  <div class="progress-meta">
+                    <span>Weekly goal</span>
+                    <strong id="weeklyGoalPercent">78%</strong>
+                  </div>
+                  <div class="progress-bar">
+                    <span id="weeklyGoalBar" style="width: 78%"></span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="panel workout-panel">
+              <div class="panel-header">
+                <div>
+                  <p class="eyebrow">Plan</p>
+                  <h2>Today's workout</h2>
+                </div>
+                <a href="workouts.html" class="mini-link">View all</a>
+              </div>
+              <div class="workout-summary">
+                <div class="workout-badge">Strength</div>
+                <h3 id="todayWorkoutName">Lower Body Power</h3>
+                <div class="chip-row">
+                  <span>45 min</span>
+                  <span>320 kcal</span>
+                  <span>Moderate</span>
+                </div>
+                <button class="btn btn-primary" type="button" id="startWorkoutBtn">Start workout</button>
+              </div>
+            </article>
+
+            <article class="panel meal-panel">
+              <div class="panel-header">
+                <div>
+                  <p class="eyebrow">Nutrition</p>
+                  <h2>Today's meal</h2>
+                </div>
+                <a href="nutrition.html" class="mini-link">Log meal</a>
+              </div>
+              <ul class="meal-list" id="todayMealList">
+                <li><span>Breakfast</span><strong>420 kcal</strong></li>
+                <li><span>Lunch</span><strong>540 kcal</strong></li>
+                <li><span>Dinner</span><strong>610 kcal</strong></li>
+              </ul>
+            </article>
+          </section>
+
+          <section class="quick-actions">
+            <button class="action-btn primary" type="button" data-quick-action="workout">
+              <span>🏋️</span>
+              Log Workout
+            </button>
+            <button class="action-btn accent" type="button" data-quick-action="meal">
+              <span>🥗</span>
+              Add Meal
+            </button>
+            <button class="action-btn secondary" type="button" data-quick-action="water">
+              <span>💧</span>
+              Add Water
+            </button>
+            <button class="action-btn neutral" type="button" data-quick-action="weight">
+              <span>⚖️</span>
+              Track Weight
+            </button>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/dashboard.js"></script>
+  </body>
+</html>

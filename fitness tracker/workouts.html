@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FitTrack | Workouts</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body data-page="workouts">
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <div class="brand">
+          <div class="brand-mark">F</div>
+          <span>FitTrack</span>
+        </div>
+
+        <nav class="sidebar-nav" aria-label="Main navigation">
+          <a href="dashboard.html" class="nav-link" data-page="dashboard"><span class="nav-icon">⌂</span><span>Dashboard</span></a>
+          <a href="workouts.html" class="nav-link active" data-page="workouts"><span class="nav-icon">🏋️</span><span>Workouts</span></a>
+          <a href="nutrition.html" class="nav-link" data-page="nutrition"><span class="nav-icon">🥗</span><span>Nutrition</span></a>
+          <a href="progress.html" class="nav-link" data-page="progress"><span class="nav-icon">📈</span><span>Progress</span></a>
+          <a href="goals.html" class="nav-link" data-page="goals"><span class="nav-icon">🎯</span><span>Goals</span></a>
+          <a href="profile.html" class="nav-link" data-page="profile"><span class="nav-icon">👤</span><span>Profile</span></a>
+          <a href="settings.html" class="nav-link" data-page="settings"><span class="nav-icon">⚙️</span><span>Settings</span></a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <button class="btn btn-ghost btn-block" data-logout>Log out</button>
+        </div>
+      </aside>
+
+      <div class="main-panel">
+        <header class="topbar">
+          <div class="topbar-left">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">☰</button>
+            <div>
+              <p class="eyebrow">Training library</p>
+              <h1>Workouts</h1>
+            </div>
+          </div>
+          <div class="topbar-right">
+            <div class="date-pill" id="currentDate"></div>
+          </div>
+        </header>
+
+        <main class="page-content">
+          <section class="panel filters-panel">
+            <div class="filter-grid">
+              <div class="field">
+                <label for="searchWorkout">Search</label>
+                <input id="searchWorkout" type="search" placeholder="Search workouts" />
+              </div>
+              <div class="field">
+                <label for="filterMuscle">Muscle group</label>
+                <select id="filterMuscle">
+                  <option value="all">All</option>
+                  <option value="Legs">Legs</option>
+                  <option value="Chest">Chest</option>
+                  <option value="Back">Back</option>
+                  <option value="Core">Core</option>
+                  <option value="Shoulders">Shoulders</option>
+                  <option value="Full Body">Full Body</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="filterDifficulty">Difficulty</label>
+                <select id="filterDifficulty">
+                  <option value="all">All</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Advanced">Advanced</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="filterEquipment">Equipment</label>
+                <select id="filterEquipment">
+                  <option value="all">All</option>
+                  <option value="Bodyweight">Bodyweight</option>
+                  <option value="Dumbbells">Dumbbells</option>
+                  <option value="Kettlebell">Kettlebell</option>
+                  <option value="Mat">Mat</option>
+                  <option value="Bike">Bike</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="filterType">Workout type</label>
+                <select id="filterType">
+                  <option value="all">All</option>
+                  <option value="Strength">Strength</option>
+                  <option value="Cardio">Cardio</option>
+                  <option value="HIIT">HIIT</option>
+                  <option value="Yoga">Yoga</option>
+                  <option value="Stretching">Stretching</option>
+                  <option value="Full Body">Full Body</option>
+                </select>
+              </div>
+            </div>
+          </section>
+
+          <section class="category-row" id="categoryRow">
+            <button class="category-chip active" type="button" data-category="all">All</button>
+            <button class="category-chip" type="button" data-category="Strength">Strength</button>
+            <button class="category-chip" type="button" data-category="Cardio">Cardio</button>
+            <button class="category-chip" type="button" data-category="HIIT">HIIT</button>
+            <button class="category-chip" type="button" data-category="Yoga">Yoga</button>
+            <button class="category-chip" type="button" data-category="Stretching">Stretching</button>
+            <button class="category-chip" type="button" data-category="Full Body">Full Body</button>
+          </section>
+
+          <section class="workout-grid" id="workoutGrid"></section>
+        </main>
+      </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/workouts.js"></script>
+  </body>
+</html>

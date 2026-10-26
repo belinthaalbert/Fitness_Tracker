@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FitTrack | Workout Details</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body data-page="workouts-detail">
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <div class="brand">
+          <div class="brand-mark">F</div>
+          <span>FitTrack</span>
+        </div>
+
+        <nav class="sidebar-nav" aria-label="Main navigation">
+          <a href="dashboard.html" class="nav-link" data-page="dashboard"><span class="nav-icon">⌂</span><span>Dashboard</span></a>
+          <a href="workouts.html" class="nav-link active" data-page="workouts"><span class="nav-icon">🏋️</span><span>Workouts</span></a>
+          <a href="nutrition.html" class="nav-link" data-page="nutrition"><span class="nav-icon">🥗</span><span>Nutrition</span></a>
+          <a href="progress.html" class="nav-link" data-page="progress"><span class="nav-icon">📈</span><span>Progress</span></a>
+          <a href="goals.html" class="nav-link" data-page="goals"><span class="nav-icon">🎯</span><span>Goals</span></a>
+          <a href="profile.html" class="nav-link" data-page="profile"><span class="nav-icon">👤</span><span>Profile</span></a>
+          <a href="settings.html" class="nav-link" data-page="settings"><span class="nav-icon">⚙️</span><span>Settings</span></a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <button class="btn btn-ghost btn-block" data-logout>Log out</button>
+        </div>
+      </aside>
+
+      <div class="main-panel">
+        <header class="topbar">
+          <div class="topbar-left">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">☰</button>
+            <div>
+              <p class="eyebrow">Workout plan</p>
+              <h1>Workout Details</h1>
+            </div>
+          </div>
+        </header>
+
+        <main class="page-content workout-detail-page">
+          <section class="panel workout-hero" id="workoutHero"></section>
+
+          <section class="detail-layout">
+            <div class="panel workout-content-panel">
+              <div class="panel-header">
+                <div>
+                  <p class="eyebrow">Exercises</p>
+                  <h2>Session breakdown</h2>
+                </div>
+              </div>
+              <div id="exerciseList" class="exercise-list"></div>
+            </div>
+
+            <aside class="panel timer-panel">
+              <div class="panel-header">
+                <div>
+                  <p class="eyebrow">Timer</p>
+                  <h2>Workout tracker</h2>
+                </div>
+              </div>
+
+              <div class="timer-display" id="timerDisplay">00:00</div>
+              <div class="timer-actions">
+                <button class="btn btn-primary" type="button" id="startTimerBtn">Start</button>
+                <button class="btn btn-secondary" type="button" id="pauseTimerBtn">Pause</button>
+                <button class="btn btn-ghost" type="button" id="resetTimerBtn">Reset</button>
+              </div>
+
+              <div class="progress-card">
+                <div class="progress-meta">
+                  <span>Progress</span>
+                  <strong id="exerciseProgressText">0 / 0 complete</strong>
+                </div>
+                <div class="progress-bar"><span id="exerciseProgressBar" style="width:0%"></span></div>
+              </div>
+
+              <button class="btn btn-success btn-block" type="button" id="finishWorkoutBtn">Finish workout</button>
+            </aside>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/workouts.js"></script>
+  </body>
+</html>
